@@ -1,0 +1,24 @@
+{
+  "originHash" : "f435733c9a277cfe528ce2785c61f4540e3977e64908e32f8a4e8d485daf4411",
+  "pins" : [
+    {
+      "identity" : "sinterappleevents",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/olofhellman/SinterAppleEvents.git",
+      "state" : {
+        "revision" : "0e690bd83ab9292018c33c6b0ad739a8b285a312",
+        "version" : "0.2.6"
+      }
+    },
+    {
+      "identity" : "sinterpixelsswim",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/olofhellman/SinterPixelsSwim/",
+      "state" : {
+        "revision" : "fb47289d77674fd5b019b31f0b8a5a0b646300e0",
+        "version" : "0.1.1"
+      }
+    }
+  ],
+  "version" : 3
+}
