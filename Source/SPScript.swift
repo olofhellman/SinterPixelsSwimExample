@@ -1,6 +1,6 @@
 //
 //  SPScript.swift
-//  SinterPixelsBridge
+//  SinterPixelsSwimExample
 //
 //  Created by Olof Hellman on 7/12/26.
 //
@@ -9,6 +9,10 @@ import AppKit
 import Foundation
 import SinterAppleEvents
 import SinterPixelsSwim
+
+public extension DescType {
+    static var coreEventSuite: DescType = DescType(string: "core")
+}
 
 /// A modern serial task queue using async/await
 actor SerialTaskQueue {
@@ -29,13 +33,10 @@ actor SerialTaskQueue {
 
 public class SPScript {
     private let queue = SerialTaskQueue()
-    public func ensurePermissions(bundleId: String) async {
+    
+    public func ensureAESendPermission(target: NSAppleEventDescriptor, eventClass: AEEventClass, eventID: AEEventID) async {
         await queue.enqueue {
-            let pid = NSRunningApplication.runningApplications(withBundleIdentifier: bundleId).first?.processIdentifier ?? 0
-            let targetTargetAddress = NSAppleEventDescriptor(processIdentifier: pid)
- 
-            // Check or request permission
-            let status = AEDeterminePermissionToAutomateTarget(targetTargetAddress.aeDesc, AEEventClass(kCoreEventClass), AEEventID(kAEOpenDocuments), true)
+            let status = AEDeterminePermissionToAutomateTarget(target.aeDesc, eventClass, eventID, true)
             if status != noErr {
                 print("Automation explicitly denied by the user or OS. err = \(status)")
             } else if status == noErr {
@@ -44,23 +45,46 @@ public class SPScript {
         }
     }
     
-    public func run() async {
+    public func ensurePermissions(bundleId: String) async {
+        let pid = NSRunningApplication.runningApplications(withBundleIdentifier: bundleId).first?.processIdentifier ?? 0
+        let target = NSAppleEventDescriptor(processIdentifier: pid)
+        await self.ensureAESendPermission(target: target, eventClass: AEEventClass(kCoreEventClass), eventID: AEEventID(kAEOpenDocuments))
+        await self.ensureAESendPermission(target: target, eventClass: AEEventClass(DescType.coreEventSuite), eventID: AEEventID(kAECountElements))
+    }
+    
+    public func getDoc(named docName: String) async -> SPDocument?    {
+        guard let spApp = SPApp() else { return nil }
+
+        let existingDocs = await spApp.documents()
+        let existingSPDocs = existingDocs.compactMap { $0 as? SPDocument }
+        for nthDoc in existingSPDocs {
+            let nthDocName = await nthDoc.name
+            if nthDocName == docName {
+                return nthDoc
+            }
+        }
+        return nil
+    }
+    
+    public func makeDocument(named docName: String?) async {
+        let proposedDocName = docName ?? "Untitled"
+        let theDoc = await getDoc(named: proposedDocName)
+        if theDoc == nil, let spApp = SPApp() {
+            let props = SAERecord()
+            props.setKey(.height, int:1000)
+            props.setKey(.width, int:1000)
+            props.setKey(.name, string: proposedDocName)
+            _ = await spApp.make(new: SPDocument.self, props: props)
+        }
+    }
+    
+    public func makeGrid(docName: String?) async {
         let pg = PenroseGrid()
-        await queue.enqueue {
-            if let spApp = SPApp() {
-                Task { @MainActor in  
-                    _ = spApp.activate()
-                    if let firstDoc = await spApp.document(atASIndex:1) {
-                        print("doc: \(firstDoc)  ")
-                    }
-                    let props = SAERecord()
-                    props.setKey(.height, int:1000)
-                    props.setKey(.width, int:1000)
-                    if let madeObject = await spApp.make(new: SPDocument.self, props: props)
-                    {
-                        print("event result: \(String(describing: madeObject)))")
-                        await pg.party(on: madeObject)
-                    }
+        let proposedDocName = docName ?? "Untitled"
+        if let spDoc = await getDoc(named: proposedDocName) {
+            await queue.enqueue {
+                Task { @MainActor in
+                    await pg.party(on: spDoc)
                 }
             }
         }

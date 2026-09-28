@@ -10,12 +10,14 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    static var shared: AppDelegate? = nil
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        AppDelegate.shared = self
         let spScript = SPScript()
         Task {
             await spScript.ensurePermissions(bundleId: "com.tomographic.sinterpixels")
-            await spScript.run()
         }
     }
 
@@ -27,6 +29,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
+    public func doMakeDocument(named name: String?) {
+        let spScript = SPScript()
+        Task {
+            await spScript.makeDocument(named: name)
+        }
+    }
 
+    public func doMakeGrid(docName: String?) {
+        let spScript = SPScript()
+        Task {
+            await spScript.makeGrid(docName: docName)
+        }
+    }
+
+    
 }
 

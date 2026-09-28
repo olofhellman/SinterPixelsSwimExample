@@ -21,6 +21,26 @@ class ViewController: NSViewController {
         }
     }
 
-
+    func docName() -> String? {
+        let textFieldContent = docNameTextField.stringValue
+        guard textFieldContent.count > 0 else {
+            return nil
+        }
+        return textFieldContent
+    }
+    
+    @IBAction func makeDocument(_ sender: Any) {
+        if let appDelegate = AppDelegate.shared {
+            appDelegate.doMakeDocument(named: docName())
+        }
+    }
+    
+    @IBAction func makeGrid(_ sender: Any) {
+        if let appDelegate = AppDelegate.shared {
+            appDelegate.doMakeGrid(docName: docName())
+        }
+    }
+    
+    @IBOutlet weak var docNameTextField: NSTextField!
 }
 
