@@ -33,7 +33,7 @@ public class PenroseGrid   {
         return abList
     }
     
-    public func makeLine( doc: SPDocument, ang: Double, pos: SPRadialCoordinates, col: SPColor) -> SPPath? {
+    public func makeLine( doc: SPDocument, ang: Double, pos: SPRadialCoordinates, col: SPColor) async  -> SPPath? {
         let rads = ang * 3.1416 / 180
          
         let props = SAERecord()
@@ -50,32 +50,32 @@ public class PenroseGrid   {
         props.setKey(.fillColor, color: fillColor)
         props.setKey(.color, color: col)
         props.setKey(.position, descriptor: pos.asNSAppleEventDescriptor())
-        return doc.make(new: SPPath.self, props: props)
+        return await doc.make(new: SPPath.self, props: props)
     }
     
-    public func setColor(appContext: SAEAppContext, paths: [SPPath], col: SPColor) {
+    public func setColor(appContext: SAEAppContext, paths: [SPPath], col: SPColor) async {
         for path in paths {
             let colorProp = path.property(FourCharCode.color)
-            colorProp?.setData(newValue: col.asNSAppleEventDescriptor())
+            await colorProp?.setData(newValue: col.asNSAppleEventDescriptor())
         }
     }
     
-    public func party(on doc: SPDocument) {
-        makeBackgroundLines(in: doc)
+    public func party(on doc: SPDocument) async {
+        await makeBackgroundLines(in: doc)
         
         var newAlpha = 0.99
         while newAlpha > 0.7 {
             let color = SPRGBAColor(r: 1.0, g: 0.5, b: 0.5, a: newAlpha)
             for n in 0...4 {
                 if let lines = axisPaths[n] {
-                    setColor(appContext: doc.appContext, paths: lines, col: color)
+                    await setColor(appContext: doc.appContext, paths: lines, col: color)
                 }
             }
             newAlpha = newAlpha - 0.4
         }
     }
     
-    public func makeBackgroundLines(in doc: SPDocument) {
+    public func makeBackgroundLines(in doc: SPDocument) async {
         let abList = makeABSequence()
         let angleList = [0.0, 72.0, 144.0, 216.0, 288.0]
         let origin = SPRadialCoordinates(radius: 0.0, angle: 0.0)
@@ -86,7 +86,7 @@ public class PenroseGrid   {
             let myColor = SPHSBColor(h:0.0, s:0.9, b:0.9)
             var currentRadius = 0.0
             var nthPaths: [SPPath?] = []
-            var path = makeLine(doc: doc, ang: nthAngle, pos: origin, col: myColor)
+            var path = await makeLine(doc: doc, ang: nthAngle, pos: origin, col: myColor)
             nthPaths.append(path)
  
             var increment: Double
@@ -101,9 +101,9 @@ public class PenroseGrid   {
                 let posa = SPRadialCoordinates(radius:currentRadius, angle:rads + (0.5 * 3.1416))
                 let posb = SPRadialCoordinates(radius:currentRadius, angle:rads + (1.5 * 3.1416))
                 
-                path = makeLine(doc: doc, ang: nthAngle, pos: posa, col: myColor)
+                path = await makeLine(doc: doc, ang: nthAngle, pos: posa, col: myColor)
                 nthPaths.append(path)
-                path =  makeLine(doc: doc, ang: nthAngle, pos: posb, col: myColor)
+                path = await makeLine(doc: doc, ang: nthAngle, pos: posb, col: myColor)
                 nthPaths.append(path)
             
             }

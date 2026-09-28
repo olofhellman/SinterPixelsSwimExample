@@ -10,13 +10,11 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         let spScript = SPScript()
         Task {
+            await spScript.ensurePermissions(bundleId: "com.tomographic.sinterpixels")
             await spScript.run()
         }
     }
