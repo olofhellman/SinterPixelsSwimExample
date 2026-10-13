@@ -10,7 +10,6 @@
 		0F5E089030696C4500C8C513 /* SinterAppleEvents in Frameworks */ = {isa = PBXBuildFile; productRef = 0F5E0874306955A600C8C513 /* SinterAppleEvents */; };
 		0F5E089130696C4500C8C513 /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = 0F5E0877306955C800C8C513 /* SinterPixelsSwim */; };
 		0FD347E73069BC4D007F913A /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD347E63069BC4D007F913A /* SinterPixelsSwim */; };
-		0FD347EA3069BC6C007F913A /* SinterAppleEvents in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD347E93069BC6C007F913A /* SinterAppleEvents */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F5E089130696C4500C8C513 /* SinterPixelsSwim in Frameworks */,
-				0FD347EA3069BC6C007F913A /* SinterAppleEvents in Frameworks */,
 				0F5E089030696C4500C8C513 /* SinterAppleEvents in Frameworks */,
 				0FD347E73069BC4D007F913A /* SinterPixelsSwim in Frameworks */,
 			);
@@ -87,7 +85,6 @@
 				0F5E0874306955A600C8C513 /* SinterAppleEvents */,
 				0F5E0877306955C800C8C513 /* SinterPixelsSwim */,
 				0FD347E63069BC4D007F913A /* SinterPixelsSwim */,
-				0FD347E93069BC6C007F913A /* SinterAppleEvents */,
 			);
 			productName = SinterPixelsBridge;
 			productReference = 0F486D693003F0AB0087E6FB /* SinterPixelsSwimExample.app */;
@@ -118,8 +115,8 @@
 			mainGroup = 0F486D603003F0AB0087E6FB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				0FD347E53069BC4D007F913A /* XCLocalSwiftPackageReference "../SinterPixelsSwim" */,
 				0FD347E83069BC6C007F913A /* XCLocalSwiftPackageReference "../SinterAppleEvents" */,
+				0FD35107307E72FC007F913A /* XCLocalSwiftPackageReference "../SinterPixelsSwim" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0F486D6A3003F0AB0087E6FB /* Products */;
@@ -390,13 +387,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		0FD347E53069BC4D007F913A /* XCLocalSwiftPackageReference "../SinterPixelsSwim" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../SinterPixelsSwim;
-		};
 		0FD347E83069BC6C007F913A /* XCLocalSwiftPackageReference "../SinterAppleEvents" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../SinterAppleEvents;
+		};
+		0FD35107307E72FC007F913A /* XCLocalSwiftPackageReference "../SinterPixelsSwim" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SinterPixelsSwim;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -412,10 +409,6 @@
 		0FD347E63069BC4D007F913A /* SinterPixelsSwim */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SinterPixelsSwim;
-		};
-		0FD347E93069BC6C007F913A /* SinterAppleEvents */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SinterAppleEvents;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

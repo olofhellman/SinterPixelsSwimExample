@@ -35,8 +35,11 @@ public class SPScript {
     private let queue = SerialTaskQueue()
     
     public func ensureAESendPermission(target: NSAppleEventDescriptor, eventClass: AEEventClass, eventID: AEEventID) async {
+        let targetType = target.descriptorType
+        let data = target.data
         await queue.enqueue {
-            let status = AEDeterminePermissionToAutomateTarget(target.aeDesc, eventClass, eventID, true)
+            guard let addressDescriptor = NSAppleEventDescriptor(descriptorType: targetType, data: data) else { return }
+            let status = AEDeterminePermissionToAutomateTarget(addressDescriptor.aeDesc, eventClass, eventID, true)
             if status != noErr {
                 print("Automation explicitly denied by the user or OS. err = \(status)")
             } else if status == noErr {
