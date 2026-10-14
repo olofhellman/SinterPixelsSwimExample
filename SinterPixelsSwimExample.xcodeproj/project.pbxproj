@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F5E089030696C4500C8C513 /* SinterAppleEvents in Frameworks */ = {isa = PBXBuildFile; productRef = 0F5E0874306955A600C8C513 /* SinterAppleEvents */; };
-		0F5E089130696C4500C8C513 /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = 0F5E0877306955C800C8C513 /* SinterPixelsSwim */; };
-		0FD347E73069BC4D007F913A /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD347E63069BC4D007F913A /* SinterPixelsSwim */; };
+		D59D1207307FA94500723ACF /* SinterAppleEvents in Frameworks */ = {isa = PBXBuildFile; productRef = D59D1206307FA94500723ACF /* SinterAppleEvents */; };
+		D59D120A307FA96800723ACF /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = D59D1209307FA96800723ACF /* SinterPixelsSwim */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F5E089130696C4500C8C513 /* SinterPixelsSwim in Frameworks */,
-				0F5E089030696C4500C8C513 /* SinterAppleEvents in Frameworks */,
-				0FD347E73069BC4D007F913A /* SinterPixelsSwim in Frameworks */,
+				D59D120A307FA96800723ACF /* SinterPixelsSwim in Frameworks */,
+				D59D1207307FA94500723ACF /* SinterAppleEvents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,9 +80,8 @@
 			);
 			name = SinterPixelsSwimExample;
 			packageProductDependencies = (
-				0F5E0874306955A600C8C513 /* SinterAppleEvents */,
-				0F5E0877306955C800C8C513 /* SinterPixelsSwim */,
-				0FD347E63069BC4D007F913A /* SinterPixelsSwim */,
+				D59D1206307FA94500723ACF /* SinterAppleEvents */,
+				D59D1209307FA96800723ACF /* SinterPixelsSwim */,
 			);
 			productName = SinterPixelsBridge;
 			productReference = 0F486D693003F0AB0087E6FB /* SinterPixelsSwimExample.app */;
@@ -115,8 +112,8 @@
 			mainGroup = 0F486D603003F0AB0087E6FB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				0FD347E83069BC6C007F913A /* XCLocalSwiftPackageReference "../SinterAppleEvents" */,
-				0FD35107307E72FC007F913A /* XCLocalSwiftPackageReference "../SinterPixelsSwim" */,
+				D59D1205307FA94500723ACF /* XCRemoteSwiftPackageReference "SinterAppleEvents" */,
+				D59D1208307FA96800723ACF /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0F486D6A3003F0AB0087E6FB /* Products */;
@@ -386,28 +383,34 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		0FD347E83069BC6C007F913A /* XCLocalSwiftPackageReference "../SinterAppleEvents" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../SinterAppleEvents;
+/* Begin XCRemoteSwiftPackageReference section */
+		D59D1205307FA94500723ACF /* XCRemoteSwiftPackageReference "SinterAppleEvents" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/olofhellman/SinterAppleEvents";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
 		};
-		0FD35107307E72FC007F913A /* XCLocalSwiftPackageReference "../SinterPixelsSwim" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../SinterPixelsSwim;
+		D59D1208307FA96800723ACF /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/olofhellman/SinterPixelsSwim";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0F5E0874306955A600C8C513 /* SinterAppleEvents */ = {
+		D59D1206307FA94500723ACF /* SinterAppleEvents */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = D59D1205307FA94500723ACF /* XCRemoteSwiftPackageReference "SinterAppleEvents" */;
 			productName = SinterAppleEvents;
 		};
-		0F5E0877306955C800C8C513 /* SinterPixelsSwim */ = {
+		D59D1209307FA96800723ACF /* SinterPixelsSwim */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = SinterPixelsSwim;
-		};
-		0FD347E63069BC4D007F913A /* SinterPixelsSwim */ = {
-			isa = XCSwiftPackageProductDependency;
+			package = D59D1208307FA96800723ACF /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */;
 			productName = SinterPixelsSwim;
 		};
 /* End XCSwiftPackageProductDependency section */
