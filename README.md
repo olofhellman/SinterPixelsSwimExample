@@ -2,7 +2,7 @@ SinterPixelsSwimExample is an example project to demonstrate using swift as a sc
 
 See the [SinterPixels support files repo](https://github.com/olofhellman/SinterpixelsSupportFiles) for details about scripting SinterPixels. SinterPixels is entirely controllable by AppleScript.
 
-The SinterPixelsSwim package supports swift code like this, which makes a new SinterPixels document:
+The SinterPixelsSwim package implements a translation layer, so that swift code can be written to send the exact same AppleEvents as AppleScript code.  Thus, it supports swift code like this, which makes a new SinterPixels document:
 
 ```
 	if let spApp = SPApp() {
@@ -21,3 +21,7 @@ which is the analogous swift version of the AppleScript
         make new document with properties { height: 1000, width: 1000 }
     end tell
 ```
+
+This repo implements a sample app that puts up a window with two buttons, one to create a new document in SinterPixels, the other to fill the document with a grid of non-periodically spaced lines:
+
+<img width="430" height="431" alt="SinterPixelsSwimExampleOutput" src="https://github.com/user-attachments/assets/87ed9849-8f47-4f17-931c-777273082d33" />
