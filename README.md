@@ -24,4 +24,4 @@ which is the analogous swift version of the AppleScript
 
 This repo implements a sample app that puts up a window with two buttons, one to create a new document in SinterPixels, the other to fill the document with a grid of non-periodically spaced lines:
 
-<img width="430" height="431" alt="SinterPixelsSwimExampleOutput" src="https://github.com/user-attachments/assets/87ed9849-8f47-4f17-931c-777273082d33" />
+<img width="430" height="431" alt="SinterPixelsSwimExampleOutput" src="https://github.com/olofhellman/SInterPixelsSwimExample/SinterPixelsSwimExampleOutput.png" />
