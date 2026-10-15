@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FD357B130817DBF007F913A /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD357B030817DBF007F913A /* SinterPixelsSwim */; };
 		D59D1207307FA94500723ACF /* SinterAppleEvents in Frameworks */ = {isa = PBXBuildFile; productRef = D59D1206307FA94500723ACF /* SinterAppleEvents */; };
-		D59D120A307FA96800723ACF /* SinterPixelsSwim in Frameworks */ = {isa = PBXBuildFile; productRef = D59D1209307FA96800723ACF /* SinterPixelsSwim */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F486D693003F0AB0087E6FB /* SinterPixelsSwimExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinterPixelsSwimExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FD35775308177E4007F913A /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
 		B10000000000000000000001 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		B10000000000000000000002 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		B10000000000000000000003 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -31,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D59D120A307FA96800723ACF /* SinterPixelsSwim in Frameworks */,
+				0FD357B130817DBF007F913A /* SinterPixelsSwim in Frameworks */,
 				D59D1207307FA94500723ACF /* SinterAppleEvents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,16 +50,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		B10000000000000000000004 /* xcconfig */ = {
-			isa = PBXGroup;
-			children = (
-				B10000000000000000000001 /* Common.xcconfig */,
-				B10000000000000000000002 /* Debug.xcconfig */,
-				B10000000000000000000003 /* Release.xcconfig */,
-			);
-			path = xcconfig;
-			sourceTree = "<group>";
-		};
 		0F486D6A3003F0AB0087E6FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +63,17 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B10000000000000000000004 /* xcconfig */ = {
+			isa = PBXGroup;
+			children = (
+				0FD35775308177E4007F913A /* Target.xcconfig */,
+				B10000000000000000000001 /* Common.xcconfig */,
+				B10000000000000000000002 /* Debug.xcconfig */,
+				B10000000000000000000003 /* Release.xcconfig */,
+			);
+			path = xcconfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +97,7 @@
 			name = SinterPixelsSwimExample;
 			packageProductDependencies = (
 				D59D1206307FA94500723ACF /* SinterAppleEvents */,
-				D59D1209307FA96800723ACF /* SinterPixelsSwim */,
+				0FD357B030817DBF007F913A /* SinterPixelsSwim */,
 			);
 			productName = SinterPixelsBridge;
 			productReference = 0F486D693003F0AB0087E6FB /* SinterPixelsSwimExample.app */;
@@ -127,7 +129,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				D59D1205307FA94500723ACF /* XCRemoteSwiftPackageReference "SinterAppleEvents" */,
-				D59D1208307FA96800723ACF /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */,
+				0FD357AF30817DBF007F913A /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0F486D6A3003F0AB0087E6FB /* Products */;
@@ -176,95 +178,15 @@
 		};
 		0F486D783003F0AC0087E6FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FD35775308177E4007F913A /* Target.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				AUTOMATION_APPLE_EVENTS = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6V7D786XTL;
-				ENABLE_APP_SANDBOX = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
-				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
-				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
-				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
-				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
-				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
-				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app requires permission to control other applications to perform automated tasks.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomographic.sinterpixelsswimexample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
-				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
-				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
-				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
-				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
-				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		0F486D793003F0AC0087E6FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FD35775308177E4007F913A /* Target.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				AUTOMATION_APPLE_EVENTS = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6V7D786XTL;
-				ENABLE_APP_SANDBOX = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
-				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
-				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
-				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
-				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
-				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
-				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This app requires permission to control other applications to perform automated tasks.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tomographic.sinterpixelsswimexample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
-				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
-				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
-				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
-				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
-				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -292,34 +214,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0FD357AF30817DBF007F913A /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/olofhellman/SinterPixelsSwim/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
 		D59D1205307FA94500723ACF /* XCRemoteSwiftPackageReference "SinterAppleEvents" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/olofhellman/SinterAppleEvents";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.1;
-			};
-		};
-		D59D1208307FA96800723ACF /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/olofhellman/SinterPixelsSwim";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.4;
+				minimumVersion = 0.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0FD357B030817DBF007F913A /* SinterPixelsSwim */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD357AF30817DBF007F913A /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */;
+			productName = SinterPixelsSwim;
+		};
 		D59D1206307FA94500723ACF /* SinterAppleEvents */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D59D1205307FA94500723ACF /* XCRemoteSwiftPackageReference "SinterAppleEvents" */;
 			productName = SinterAppleEvents;
-		};
-		D59D1209307FA96800723ACF /* SinterPixelsSwim */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D59D1208307FA96800723ACF /* XCRemoteSwiftPackageReference "SinterPixelsSwim" */;
-			productName = SinterPixelsSwim;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,22 +1,22 @@
 {
-  "originHash" : "d65f90b5a72bde164739ec083d53510088a3160761312f9cb305d1b0f1a33e99",
+  "originHash" : "ad82de76dea9f2faf371cf7dd5b6a54f29af02eab7416fe5faa7e393908c8381",
   "pins" : [
     {
       "identity" : "sinterappleevents",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/olofhellman/SinterAppleEvents",
       "state" : {
-        "revision" : "33bc8ffbfbb796ac7d1f12ed59c265a376d889de",
-        "version" : "0.3.1"
+        "revision" : "f97f5173673e0e370a64277aec1e1b82538cc11c",
+        "version" : "0.3.2"
       }
     },
     {
       "identity" : "sinterpixelsswim",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/olofhellman/SinterPixelsSwim",
+      "location" : "https://github.com/olofhellman/SinterPixelsSwim/",
       "state" : {
-        "revision" : "e4b3510736de6a6209c38d613b24aedd412039f3",
-        "version" : "0.1.4"
+        "revision" : "6327688e48aed4944b0fd7fb755f2d91c9607ac4",
+        "version" : "0.1.5"
       }
     }
   ],
