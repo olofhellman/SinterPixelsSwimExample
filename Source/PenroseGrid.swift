@@ -56,7 +56,7 @@ public class PenroseGrid   {
     public func setColor(appContext: SAEAppContext, paths: [SPPath], col: SPColor) async {
         for path in paths {
             let colorProp = path.property(FourCharCode.color)
-            await colorProp?.setData(newValue: col.asNSAppleEventDescriptor())
+            await colorProp.setData(newValue: col.asNSAppleEventDescriptor())
         }
     }
     
